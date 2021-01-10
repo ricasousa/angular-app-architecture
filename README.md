@@ -2,6 +2,10 @@
 
 Projeto criado afim de testar uma arquitetura que seja escalável.
 
+Na pasta **app** encontramos os módulos compartilhados dentro da pasta **shared** enquanto os módulos core, dentro da pasta **core**. No core vão os módulos como `TranslateModule`, `HttpClientModule` e o que mais for necessário a nível de aplicação. Caso gerenciamento de estado de faça necessário, deverá ficar aqui também. Além dos módulos citados acima, teremos também os interceptors, `CanGuard` e etc.
+
+Além disso, há também alguns exemplos básicos de utilização de **Dynamic Forms**
+
 Algumas alterações realizadas.
 
 **angular.json**
