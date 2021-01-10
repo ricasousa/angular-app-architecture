@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
+  FormControl,
   FormArray,
   FormBuilder,
   FormGroup,
   Validators,
 } from '@angular/forms';
+
+/**
+ * References for Dynamic Forms...
+ * https://medium.com/@krishnaregmi/how-to-create-dynamic-forms-in-angular-7-using-formcontrol-a443a2c5e3a9
+ */
 
 @Component({
   selector: 'register',
@@ -14,13 +20,39 @@ import {
 })
 export class RegisterComponent implements OnInit {
   profileForm = {} as FormGroup;
+  // myFormGroup = {} as FormGroup;
+
+  // formTemplate = [
+  //   {
+  //     key: 'mail',
+  //     type: 'textBox',
+  //     label: 'E-mail',
+  //   },
+  //   {
+  //     key: 'age',
+  //     type: 'number',
+  //     label: 'Age',
+  //   },
+  //   {
+  //     key: 'favorite_book',
+  //     type: 'select',
+  //     label: 'favorite book',
+  //     options: ['Jane Eyre', 'Pride and Prejudice', 'Wuthering Heights'],
+  //   },
+  // ];
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    // const group: any = {};
+    // this.formTemplate.forEach((inputTemplate) => {
+    //   group[inputTemplate.key] = new FormControl('');
+    // });
+    // this.myFormGroup = new FormGroup(group);
+
     this.profileForm = this.fb.group({
-      firstName: ['Ricardo', Validators.required],
-      lastName: ['', Validators.minLength(3)],
+      firstName: [null, Validators.required],
+      lastName: ['', Validators.required],
       address: this.fb.group({
         street: [''],
         city: [''],
@@ -28,13 +60,10 @@ export class RegisterComponent implements OnInit {
         zip: [''],
       }),
       aliases: this.fb.array([
-        {
-          a: this.fb.control('a'),
-          c: this.fb.control('c'),
-        },
-        {
-          b: this.fb.control('b'),
-        },
+        this.fb.group({
+          name: ['', Validators.required],
+          email: ['', [Validators.required, Validators.email]],
+        }),
       ]),
     });
   }
@@ -45,10 +74,24 @@ export class RegisterComponent implements OnInit {
   }
 
   addAlias() {
-    this.aliases.push(this.fb.control(''));
+    this.a.push(
+      this.fb.group({
+        name: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+      })
+    );
   }
 
-  get aliases() {
-    return this.profileForm.get('aliases') as FormArray;
+  get formControls() {
+    return this.profileForm.controls;
+  }
+
+  get a() {
+    //return this.profileForm.get('aliases') as FormArray;
+    return this.formControls.aliases as FormArray;
+  }
+
+  handleRemoveAlias(indexToRemove: number) {
+    this.a.removeAt(indexToRemove);
   }
 }
