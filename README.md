@@ -38,6 +38,18 @@ Para evitar imports com paths relativas, adicionamos a configuração abaixo:
 
 A principio essa pasta serviria para criar features que não necessitariam de um módulo.
 
+## Conventional Commits
+
+**build:** Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+**ci:** Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)
+**docs:** Documentation only changes
+**feat:** A new feature
+**fix:** A bug fix
+**perf:** A code change that improves performance
+**refactor:** A code change that neither fixes a bug nor adds a feature
+**style:** Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+**test:** Adding missing tests or correcting existing tests
+
 # Refinar
 
 
@@ -72,3 +84,5 @@ Avoid being so DRY that you sacrifice readability.
 https://medium.com/dev-jam/5-tips-best-practices-to-organize-your-angular-project-e900db08702e
 
 https://medium.com/@shijin_nath/angular-right-file-structure-and-best-practices-that-help-to-scale-2020-52ce8d967df5
+
+https://www.conventionalcommits.org/en/v1.0.0/

@@ -84,7 +84,7 @@
       <button type="button" (click)="addAlias()">Add Alias</button>
 
       <div *ngFor="let alias of a.controls; let i = index">
-        <div [formGroup]="alias">
+        <div formGroupName="aliases">
           <h4>Aliases {{ i + 1 }}</h4>
 
           <div class="form-group col-6">

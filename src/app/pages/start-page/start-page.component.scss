@@ -1,0 +1,16 @@
+main {
+  background-color: #ffffcc;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+
+  > footer {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    height: 200px;
+    background-color: aquamarine;
+    position: fixed;
+    bottom: 0;
+  }
+}
