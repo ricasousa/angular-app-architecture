@@ -21,7 +21,9 @@
       "@env": ["environments/environment"],
       "@shared/*": ["app/shared/*"],
       "@core/*": ["app/core/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
