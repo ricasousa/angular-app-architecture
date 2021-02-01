@@ -7,11 +7,20 @@ import { AppComponent } from './app.component';
 import { CoreModule } from '@core/core.module';
 import { StartPageComponent } from './pages/start-page/start-page.component';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, StartPageComponent, HeaderComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule],
+  declarations: [
+    AppComponent,
+    StartPageComponent,
+    HeaderComponent,
+    LoginComponent,
+    RegisterComponent
+  ],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, SharedModule],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

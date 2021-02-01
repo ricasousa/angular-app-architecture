@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from '@core/guards/auth-guard.service';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { StartPageComponent } from './pages/start-page/start-page.component';
 
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () =>
-      import('./features/login/login.module').then(module => module.LoginModule)
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '',
