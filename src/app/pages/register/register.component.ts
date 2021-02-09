@@ -90,4 +90,6 @@ export class RegisterComponent implements OnInit {
   handleRemoveAlias(indexToRemove: number) {
     this.a.removeAt(indexToRemove);
   }
+
+
 }

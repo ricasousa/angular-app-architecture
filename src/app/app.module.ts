@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { SharedModule } from '@shared/shared.module';
+import { TestFormComponent } from './pages/test-form/test-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SharedModule } from '@shared/shared.module';
     StartPageComponent,
     HeaderComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TestFormComponent
   ],
   imports: [BrowserModule, AppRoutingModule, CoreModule, SharedModule],
   providers: [],

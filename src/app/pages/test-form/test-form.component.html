@@ -1,0 +1,123 @@
+<h1>Formulário Data Driven</h1>
+
+<form [formGroup]="myForm" (ngSubmit)="submitHandler()">
+  <div>
+    <label for="">Nome: </label>
+    <input type="text" formControlName="name" />
+  </div>
+
+  <div>
+    <label for="">E-mail:</label>
+    <input type="text" formControlName="email" />
+  </div>
+
+  <div class="block" formGroupName="address">
+    <h6>Endereço</h6>
+    <div>
+      <label for="">CEP:</label>
+      <input
+        type="text"
+        formControlName="zipcode"
+        (blur)="findZipCode($event)"
+      />
+    </div>
+
+    <div>
+      <label for="">Rua:</label>
+      <input type="text" formControlName="street" />
+    </div>
+
+    <div>
+      <label for="">Número:</label>
+      <input type="text" formControlName="number" />
+    </div>
+
+    <div>
+      <label for="">Complemento:</label>
+      <input type="text" formControlName="complement" />
+    </div>
+
+    <div>
+      <label for="">Bairro:</label>
+      <input type="text" formControlName="neighborhood" />
+    </div>
+
+    <div>
+      <label for="">Cidade:</label>
+      <input type="text" formControlName="city" />
+    </div>
+
+    <div>
+      <label for="">Estado:</label>
+      <select formControlName="state" id="">
+        <option value="SP">São Paulo</option>
+        <option value="RJ">Rio de Janeiro</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- <div>
+    <label for="">Tecnologias:</label>
+    <select multiple formControlName="techs" id="">
+      <option *ngFor="let tech of mockTechs" [value]="tech.tech">
+        {{ tech.tech }}
+      </option>
+    </select>
+  </div> -->
+  <div class="block" formArrayName="techs">
+    <h6>Tecnologias</h6>
+
+    <div *ngFor="let tech of myForm.get('techs').controls; let i = index">
+      <div [formGroupName]="i">
+        <h5>Tecnologia {{ i + 1 }}</h5>
+
+        <div>
+          <label for="">Name:</label>
+          <input type="text" formControlName="name" />
+        </div>
+      </div>
+      <button type="button" (click)="removeTech(i)">Remove</button>
+    </div>
+
+    <button type="button" (click)="addTech()">Add</button>
+
+  </div>
+
+  <div class="block" formArrayName="parents">
+    <h6>Dependentes</h6>
+
+    <div *ngFor="let parent of myForm.controls.parents.controls; let i = index">
+      <div [formGroupName]="i">
+        <h5>Dependente {{ i + 1 }}</h5>
+
+        <div>
+          <label for="">Name:</label>
+          <input type="text" formControlName="name" />
+        </div>
+
+        <div>
+          <label for="">age:</label>
+          <input type="text" formControlName="age" />
+        </div>
+      </div>
+    </div>
+
+    <button type="button" (click)="addParent()">Add</button>
+    <button type="button" (click)="removeParent(i)">Remove</button>
+  </div>
+
+  <button [disabled]="myForm.invalid">Enviar</button>
+</form>
+
+<p>
+  Form Válido:
+  <span>
+    {{ myForm.valid }}
+  </span>
+</p>
+
+<div>
+  <pre>
+    {{ myForm.value | json }}
+  </pre>
+</div>
