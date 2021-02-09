@@ -12,6 +12,13 @@ import { RegisterComponent } from './pages/register/register.component';
 import { SharedModule } from '@shared/shared.module';
 import { TestFormComponent } from './pages/test-form/test-form.component';
 
+/**
+ * Para efeitos de testes...
+ *
+ * https://viacep.com.br/
+ * https://httpbin.org/
+ */
+
 @NgModule({
   declarations: [
     AppComponent,
