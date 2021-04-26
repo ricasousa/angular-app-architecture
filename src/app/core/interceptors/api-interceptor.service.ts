@@ -17,10 +17,18 @@ export class ApiInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const httpOptions = {
       headers: new HttpHeaders({
-        'X-Api-Key': 'api-key',
         Authorization: 'Bearer token...',
       }),
     };
+
+    // const loginSession = this.authService.loginSession();
+    // if (loginSession) {
+    //   const { username } = loginSession;
+    //   httpOptions.headers = httpOptions.headers.append(
+    //     'another-header-key',
+    //     username
+    //   );
+    // }
 
     const apiRequest = req.clone({
       headers: httpOptions.headers,
