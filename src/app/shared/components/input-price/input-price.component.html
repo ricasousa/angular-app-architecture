@@ -1,0 +1,8 @@
+<input
+  #inputRef
+  type="text"
+  class="form-control"
+  onlyNumbers
+  (keyup)="handleFormatCurrency($event)"
+  (blur)="setTouchedOnBlur($event)"
+/>

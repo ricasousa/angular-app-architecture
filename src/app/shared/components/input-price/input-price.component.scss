@@ -1,0 +1,5 @@
+@import 'colors.scss';
+
+:host.ng-touched.ng-invalid input {
+  border-color: $color-error;
+}
