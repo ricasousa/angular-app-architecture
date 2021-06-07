@@ -1,21 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from './components/button/button.component';
-import { InputComponent } from './components/input/input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputPriceComponent } from './components/input-price/input-price.component';
+import { ButtonComponent } from './components/button/button.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { OnlyNumbersDirective } from './directives/only-numbers.directive';
 
 @NgModule({
-  declarations: [ButtonComponent, InputComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  exports: [
+  declarations: [
+    InputPriceComponent,
     ButtonComponent,
-    InputComponent,
+    LoadingComponent,
+    OnlyNumbersDirective
+  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  exports: [
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InputPriceComponent,
+    ButtonComponent,
+    OnlyNumbersDirective
   ]
 })
 export class SharedModule {}
