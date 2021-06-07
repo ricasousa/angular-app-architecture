@@ -39,12 +39,13 @@ export class TestFormComponent implements OnInit {
     }
   ];
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {}
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.myForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
+      salary: [null, Validators.required],
 
       address: this.formBuilder.group({
         zipcode: ['', [Validators.required, Validators.maxLength(8)]],

@@ -4,34 +4,35 @@ import {
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
-  HttpHeaders,
+  HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-//import { environment } from '@env';
+import { environment } from '@env';
 
 @Injectable()
 export class ApiInterceptor implements HttpInterceptor {
   intercept(
-    req: HttpRequest<any>,
+    request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const httpOptions = {
       headers: new HttpHeaders({
-        Authorization: 'Bearer token...',
-      }),
+        'X-Api-Key': environment.apiKey
+      })
     };
 
-    // const loginSession = this.authService.loginSession();
-    // if (loginSession) {
-    //   const { username } = loginSession;
-    //   httpOptions.headers = httpOptions.headers.append(
-    //     'another-header-key',
-    //     username
-    //   );
-    // }
+    const loginSession = { login: 'login', applicationToken: 'TOKEN' };
+    if (loginSession) {
+      const { login, applicationToken } = loginSession;
+      httpOptions.headers = httpOptions.headers.append('header-1', login);
+      httpOptions.headers = httpOptions.headers.append(
+        'authorization',
+        `bearer ${applicationToken}`
+      );
+    }
 
-    const apiRequest = req.clone({
-      headers: httpOptions.headers,
+    const apiRequest = request.clone({
+      headers: httpOptions.headers
     });
 
     return next.handle(apiRequest);

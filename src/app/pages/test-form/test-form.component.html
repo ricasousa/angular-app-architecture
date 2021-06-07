@@ -2,13 +2,18 @@
 
 <form [formGroup]="myForm" (ngSubmit)="submitHandler()">
   <div>
-    <label for="">Nome: </label>
+    <label for="">Name: </label>
     <input type="text" formControlName="name" />
   </div>
 
   <div>
-    <label for="">E-mail:</label>
+    <label for="">eMail:</label>
     <input type="text" formControlName="email" />
+  </div>
+
+  <div>
+    <label for="">Salary:</label>
+    <app-input-price formControlName="salary"></app-input-price>
   </div>
 
   <div class="block" formGroupName="address">
@@ -56,18 +61,10 @@
     </div>
   </div>
 
-  <!-- <div>
-    <label for="">Tecnologias:</label>
-    <select multiple formControlName="techs" id="">
-      <option *ngFor="let tech of mockTechs" [value]="tech.tech">
-        {{ tech.tech }}
-      </option>
-    </select>
-  </div> -->
   <div class="block" formArrayName="techs">
     <h6>Tecnologias</h6>
 
-    <div *ngFor="let tech of myForm.get('techs').controls; let i = index">
+    <div *ngFor="let tech of $any(myForm.get('techs')).controls; let i = index">
       <div [formGroupName]="i">
         <h5>Tecnologia {{ i + 1 }}</h5>
 
@@ -80,13 +77,14 @@
     </div>
 
     <button type="button" (click)="addTech()">Add</button>
-
   </div>
 
   <div class="block" formArrayName="parents">
     <h6>Dependentes</h6>
 
-    <div *ngFor="let parent of myForm.controls.parents.controls; let i = index">
+    <div
+      *ngFor="let parent of $any(myForm.get('parents')).controls; let i = index"
+    >
       <div [formGroupName]="i">
         <h5>Dependente {{ i + 1 }}</h5>
 
@@ -100,10 +98,10 @@
           <input type="text" formControlName="age" />
         </div>
       </div>
-    </div>
 
-    <button type="button" (click)="addParent()">Add</button>
-    <button type="button" (click)="removeParent(i)">Remove</button>
+      <button type="button" (click)="addParent()">Add</button>
+      <button type="button" (click)="removeParent(i)">Remove</button>
+    </div>
   </div>
 
   <button [disabled]="myForm.invalid">Enviar</button>

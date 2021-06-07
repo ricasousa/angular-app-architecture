@@ -8,7 +8,7 @@ import { CoreModule } from '@core/core.module';
 import { StartPageComponent } from './pages/start-page/start-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+
 import { SharedModule } from '@shared/shared.module';
 import { TestFormComponent } from './pages/test-form/test-form.component';
 
@@ -25,7 +25,6 @@ import { TestFormComponent } from './pages/test-form/test-form.component';
     StartPageComponent,
     HeaderComponent,
     LoginComponent,
-    RegisterComponent,
     TestFormComponent
   ],
   imports: [BrowserModule, AppRoutingModule, CoreModule, SharedModule],
