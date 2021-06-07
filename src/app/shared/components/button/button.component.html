@@ -1,3 +1,14 @@
-<button class="button">
-  Componente de Botão
+<button
+  class="btn btn-{{ theme }}"
+  [class.btn-block]="block"
+  [type]="type"
+  [disabled]="disabled"
+  (click)="handleClick()">
+  <app-loading
+    *ngIf="loading"
+    width="16px"
+    height="16px"
+    style="margin-right: 5px">
+  </app-loading>
+  <ng-content></ng-content>
 </button>

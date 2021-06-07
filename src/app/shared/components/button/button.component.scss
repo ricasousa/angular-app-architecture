@@ -1,5 +1,14 @@
-@import "colors.scss";
+:host {
+  display: inline-flex;
+}
 
-.button {
-  background-color: $primary;
+button.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+  }
 }
