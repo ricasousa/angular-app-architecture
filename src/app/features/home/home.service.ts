@@ -5,7 +5,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '@env';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class HomeService {
   private url = `${environment.apiUrl}/basic-info`;

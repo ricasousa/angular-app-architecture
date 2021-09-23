@@ -1,5 +1,7 @@
 <h1>Formulário Data Driven</h1>
 
+<p *ngIf="verifica()">Será que vai aparecer...</p>
+
 <form [formGroup]="myForm" (ngSubmit)="submitHandler()">
   <div>
     <label for="">Name: </label>
@@ -23,8 +25,7 @@
       <input
         type="text"
         formControlName="zipcode"
-        (blur)="findZipCode($event)"
-      />
+        (blur)="findZipCode($event)" />
     </div>
 
     <div>
@@ -83,8 +84,10 @@
     <h6>Dependentes</h6>
 
     <div
-      *ngFor="let parent of $any(myForm.get('parents')).controls; let i = index"
-    >
+      *ngFor="
+        let parent of $any(myForm.get('parents')).controls;
+        let i = index
+      ">
       <div [formGroupName]="i">
         <h5>Dependente {{ i + 1 }}</h5>
 

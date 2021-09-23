@@ -29,9 +29,8 @@ describe('ButtonComponent', () => {
     buttonHostComponent = hostFixture.componentInstance;
     hostFixture.detectChanges();
 
-    const buttonComponentEl = hostFixture.nativeElement.querySelector(
-      'app-button'
-    );
+    const buttonComponentEl =
+      hostFixture.nativeElement.querySelector('app-button');
     buttonRef = buttonComponentEl.querySelector('button');
   });
 

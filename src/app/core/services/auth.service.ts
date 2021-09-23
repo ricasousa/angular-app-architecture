@@ -10,7 +10,7 @@ import { environment } from '@env';
 export class AuthService {
   protected url = `${environment.apiUrl}/session`;
 
-  constructor(private http: HttpClient,) {
+  constructor(private http: HttpClient) {
     console.log('Hello from AuthService');
   }
 

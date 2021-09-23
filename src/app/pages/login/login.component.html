@@ -2,6 +2,8 @@
   <section>
     <h1>Sou o login...</h1>
 
+    <p *ngIf="verifica()">Vou aparecer....</p>
+
     <app-button type="button" (click)="handleLogin()">Entrar</app-button>
 
     <a routerLink="/register">Register</a>

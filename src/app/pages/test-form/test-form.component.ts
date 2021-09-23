@@ -39,6 +39,15 @@ export class TestFormComponent implements OnInit {
     }
   ];
 
+  STATE = {
+    a: 'A'
+  };
+
+  verifica() {
+    //return this.STATE.a === cond
+    return true;
+  }
+
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {

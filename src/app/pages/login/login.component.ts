@@ -5,10 +5,14 @@ import { AuthService } from '@core/services/auth.service';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   returnUrl = '';
+
+  STATE = {
+    a: 'A'
+  };
 
   constructor(
     private route: ActivatedRoute,
@@ -23,12 +27,25 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  private x = 'A';
+
+  private obj = {
+    required: 'a',
+    minlength: 'b'
+  };
+
+  verifica() {
+    console.log('Verificar...');
+    return Object.prototype.hasOwnProperty.call(this.obj, 'required');
+    //return this.STATE.a === this.obj.required
+  }
+
   handleLogin() {
     sessionStorage.setItem(
       'user',
       JSON.stringify({
         name: 'Ricardo',
-        lastName: 'Sousa',
+        lastName: 'Sousa'
       })
     );
 

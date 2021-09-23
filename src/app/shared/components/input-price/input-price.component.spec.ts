@@ -49,9 +49,8 @@ describe('InputPriceComponent', () => {
     testHostComponent.amount.setValidators([Validators.required]);
 
     const hostComponentElement = hostFixture.nativeElement;
-    const componentChild = hostComponentElement.querySelector(
-      'app-input-price'
-    );
+    const componentChild =
+      hostComponentElement.querySelector('app-input-price');
     const inputRef: HTMLInputElement = componentChild.querySelector('input');
 
     inputRef.dispatchEvent(new Event('blur'));
@@ -65,9 +64,8 @@ describe('InputPriceComponent', () => {
     testHostComponent.inputPriceComponent.allowZeroAmount = true;
 
     const hostComponentElement = hostFixture.nativeElement;
-    const componentChild = hostComponentElement.querySelector(
-      'app-input-price'
-    );
+    const componentChild =
+      hostComponentElement.querySelector('app-input-price');
     const inputRef: HTMLInputElement = componentChild.querySelector('input');
 
     inputRef.value = '0';
@@ -86,9 +84,8 @@ describe('InputPriceComponent', () => {
     testHostComponent.inputPriceComponent.allowZeroAmount = false;
 
     const hostComponentElement = hostFixture.nativeElement;
-    const componentChild = hostComponentElement.querySelector(
-      'app-input-price'
-    );
+    const componentChild =
+      hostComponentElement.querySelector('app-input-price');
     const inputRef: HTMLInputElement = componentChild.querySelector('input');
 
     inputRef.value = '0';
