@@ -52,7 +52,6 @@ A principio essa pasta serviria para criar features que não necessitariam de um
 
 # Refinar
 
-
 Regarding the Application structure, you have to keep in mind being LIFT:
 
 Do structure the app such that you can Locate code quickly, Identify the code at a glance, keep the Flattest structure you can, and Try to be DRY
